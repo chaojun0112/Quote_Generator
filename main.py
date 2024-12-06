@@ -1,16 +1,11 @@
-from flask import Flask, jsonify, request, render_template
+from flask import Flask, jsonify, render_template
 from flask_cors import CORS  # 支持跨域請求
 import json
 import random
 import os
 
-
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static', template_folder='templates')
 CORS(app)  # 啟用跨域支持
-
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
 
 # 讀取名言 JSON 文件
 def load_quotes():
@@ -51,3 +46,7 @@ def search_quote(keyword):
 @app.errorhandler(404)
 def not_found(error):
     return jsonify({"error": "Resource not found"}), 404
+
+if __name__ == '__main__':
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=False)
