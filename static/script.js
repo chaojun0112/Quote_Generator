@@ -5,11 +5,9 @@ document.addEventListener("DOMContentLoaded", () => {
       .then(() => console.log('Service Worker Registered'))
       .catch(err => console.error('Service Worker Registration Failed', err));
   }
-
   // 名言生成功能
   const generateQuoteButton = document.getElementById("generateQuote");
   const quoteDisplay = document.getElementById("quote");
-
   generateQuoteButton.addEventListener("click", () => {
     fetch("/api/random")
       .then((response) => {
@@ -31,11 +29,9 @@ document.addEventListener("DOMContentLoaded", () => {
         quoteDisplay.innerHTML = "發生錯誤，請檢查後端是否運行正常。";
       });
   });
-
   // 主題切換功能
   const themeSelect = document.getElementById("theme");
   const savedTheme = localStorage.getItem("theme");
-
   function applyTheme(theme) {
     document.body.classList.remove("theme-green", "theme-brown", "theme-dark");
     if (theme !== "default") {
@@ -43,12 +39,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     localStorage.setItem("theme", theme);
   }
-
   if (savedTheme) {
     applyTheme(savedTheme);
     themeSelect.value = savedTheme;
   }
-
   themeSelect.addEventListener("change", (e) => {
     applyTheme(e.target.value);
   });
