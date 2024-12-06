@@ -8,10 +8,6 @@ import os
 app = Flask(__name__)
 CORS(app)  # 啟用跨域支持
 
-@app.route("/")
-def home():
-    return "Hello, World!"
-
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
@@ -55,6 +51,3 @@ def search_quote(keyword):
 @app.errorhandler(404)
 def not_found(error):
     return jsonify({"error": "Resource not found"}), 404
-
-if __name__ == '__main__':
-    app.run(debug=True)
