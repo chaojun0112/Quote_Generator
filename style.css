@@ -1,0 +1,92 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color, #f9f9f9);
+  color: var(--text-color, #333333);
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background: var(--container-bg, rgba(255, 255, 255, 0.95)); /* 使用可變變數以適配主題 */
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* 增加陰影對比 */
+}
+
+h1 {
+  font-size: 2rem;
+  color: var(--text-color, #333333);
+}
+
+p {
+  font-size: 1.2rem;
+  margin: 20px 0;
+  color: var(--text-color, #333333);
+}
+
+button {
+  background-color: var(--btn-bg, #4CAF50);
+  color: var(--btn-color, #FFFFFF);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  font-size: 1rem;
+}
+
+button:hover {
+  transform: scale(1.1);
+  background-color: var(--btn-hover-bg, #45A049);
+}
+
+.theme-selector {
+  margin-top: 20px;
+}
+
+select {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--btn-bg, #4CAF50);
+  color: var(--btn-color, #FFFFFF);
+}
+
+/* 主題相關樣式 */
+:root {
+  --bg-color: #f9f9f9;
+  --text-color: #333333;
+  --btn-bg: #4CAF50;
+  --btn-color: #FFFFFF;
+  --btn-hover-bg: #45A049;
+  --container-bg: rgba(255, 255, 255, 0.95);
+}
+
+.theme-green {
+  --bg-color: #E8F6EF;
+  --text-color: #0F3D19; /* 加深文字顏色 */
+  --btn-bg: #2D6A4F;
+  --btn-hover-bg: #1B4332;
+  --container-bg: rgba(232, 246, 239, 0.95); /* 配合主題調整容器背景 */
+}
+
+.theme-brown {
+  --bg-color: #F4E7D3;
+  --text-color: #4B2F2B; /* 提升對比度 */
+  --btn-bg: #8C6057;
+  --btn-hover-bg: #5A3E36;
+  --container-bg: rgba(244, 231, 211, 0.95); /* 配合主題調整容器背景 */
+}
+
+.theme-dark {
+  --bg-color: #1C1E28; /* 更深的背景色 */
+  --text-color: #FFFFFF; /* 文字顏色改為白色 */
+  --btn-bg: #3C415E;
+  --btn-hover-bg: #535B7A;
+  --container-bg: rgba(44, 46, 56, 0.95); /* 深色主題的容器背景 */
+}
